@@ -5,10 +5,8 @@
 - [Overview](#overview)
 - [Project Structure](#project-structure)
 - [Deployment Steps](#deployment-steps)
-- [Configuration](#configuration)
-- [Usage](#usage)
-- [Author](#author)
-- [License](#license)
+- [Links](#Links)
+- [Acknowledgments](#Acknowledgments)
 
 ## Overview
 
@@ -48,3 +46,13 @@ This project showcases the deployment of a web application and MongoDB in a Kube
     minikube stop
 
    ```
+
+## Links
+ - Webapp Image on Docker Hub : https://hub.docker.com/repository/docker/nanajanashia/k8s-demo-app
+
+## Acknowledgments
+
+I would like to express my gratitude to TechWorld with Nana for creating an incredibly helpful video that greatly assisted me in understanding K8. .
+
+[Link to the Helpful Video](https://www.youtube.com/watch?v=s_o8dwzRlu4)
+
