@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongo-deployment
+  labels: # Optional
+    app: mongo
+spec:
+  replicas: 1
+  selector:
+    matchLabels: #all the pods that match to match lables belong to this deployment
+      app: mongo
+  template: # Configuration of the pod because deployment manages pod. Has its own "metadata" and "spec" section just like deployment 
+    metadata:
+      labels: # for pods label is required field
+        app: mongo
+    spec: #Defination of containers. Which Image? Which Port?# Creates pods with mongo:5.0 image
+      containers: 
+      - name: mongodb
+        image: mongo:5.0
+        ports:
+        - containerPort: 27017
+        env:
+        - name: MONGO_INITDB_ROOT_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: mongo-secret
+              key: mongo-user
+        - name: MONGO_INITDB_ROOT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mongo-secret
+              key: mongo-password  
+
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongo-service
+spec:
+  selector: # Select pods to forward request to
+    app: mongo
+  ports:
+    - protocol: TCP
+      port: 27017
+      targetPort: 27017 # same as containerPort: 27017

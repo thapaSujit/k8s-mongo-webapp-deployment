@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webapp-deployment
+  labels: # Optional
+    app: webapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels: #all the pods that match to match lables belong to this deployment
+      app: webapp
+  template: # Configuration of the pod because deployment manages pod. Has its own "metadata" and "spec" section just like deployment 
+    metadata:
+      labels: # for pods label is required field
+        app: webapp
+    spec: #Defination of containers. Which Image? Which Port?# Creates pods with mongo:5.0 image
+      containers: 
+      - name: webapp
+        image: nanajanashia/k8s-demo-app:v1.0
+        ports:
+        - containerPort: 3000
+        env:
+        - name: USER_NAME
+          valueFrom:
+            secretKeyRef:
+              name: mongo-secret
+              key: mongo-user
+        - name: USER_PWD
+          valueFrom:
+            secretKeyRef:
+              name: mongo-secret
+              key: mongo-password 
+        - name: DB_URL
+          valueFrom:
+            configMapKeyRef:
+              name: mongo-config
+              key: mongo-url
+
+    
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: webapp-service
+spec:
+  type: NodePort # To make service external
+  selector: # Select pods to forward request to
+    app: webapp
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000 # same as containerPort: 27017
+      nodePort: 30100 # Exposes the service on each nodes IP at a static port
