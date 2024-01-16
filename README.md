@@ -24,15 +24,27 @@ This project showcases the deployment of a web application and MongoDB in a Kube
 
 
 ## Deployment Steps
+1. Start the minikube cluster 
+```bash
+   minikube start --vm-driver=hyperkit 
+   minikube status
+   ```
 
-1. Apply MongoDB ConfigMap and Secret:
-   ```bash
+2. Apply MongoDB ConfigMap and Secret:
+```bash
    kubectl apply -f configmap-mongo.yaml
    kubectl apply -f secret-mongo.yaml
    kubectl apply -f mongo.yaml
    kubectl apply -f webapp.yaml
    ```
+3. Get the node's ip address
+```bash
+    minikube ip
+   ```
+4. Use that node ip address and the port of the external service node which is 30100(See webapp.yaml file) to access the app in your browser
 
+5. stop your Minikube cluster
+```bash
+    minikube stop
 
-kubectl expose deployment mongo-deployment --type=ClusterIP --name=mongo-service
-kubectl expose deployment webapp-deployment --type=NodePort --name=webapp-service
+   ```
