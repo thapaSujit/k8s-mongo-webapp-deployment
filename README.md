@@ -1,16 +1,17 @@
-# Kubernetes Web App with MongoDB Deployment Demo
+# Kubernetes Web App with MongoDB Deployment using Minikube
 
 This project demonstrates the deployment of a web application and MongoDB in a Kubernetes cluster using Minikube. The deployment includes ConfigMaps and Secrets for managing configuration data securely.
 
-Table of Contents:
+# Table of Contents
 
-Overview
-Project Structure
-Deployment Steps
-Configuration
-Usage
-Author
-License
+- [Overview](#overview)
+- [Project Structure](#project-structure)
+- [Deployment Steps](#deployment-steps)
+- [Configuration](#configuration)
+- [Usage](#usage)
+- [Author](#author)
+- [License](#license)
+
 
 oVERVIEW
 ## Overview
