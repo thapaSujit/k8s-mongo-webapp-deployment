@@ -1,7 +1,5 @@
 # Kubernetes Web App with MongoDB Deployment using Minikube
 
-This project demonstrates the deployment of a web application and MongoDB in a Kubernetes cluster using Minikube. The deployment includes ConfigMaps and Secrets for managing configuration data securely.
-
 # Table of Contents
 
 - [Overview](#overview)
@@ -12,8 +10,6 @@ This project demonstrates the deployment of a web application and MongoDB in a K
 - [Author](#author)
 - [License](#license)
 
-
-oVERVIEW
 ## Overview
 
 This project showcases the deployment of a web application and MongoDB in a Kubernetes environment. It utilizes ConfigMaps for configuration management and Secrets for handling sensitive information. The deployment is orchestrated using Minikube, making it easy to test and showcase on a local Kubernetes cluster.
@@ -33,11 +29,9 @@ This project showcases the deployment of a web application and MongoDB in a Kube
    ```bash
    kubectl apply -f configmap-mongo.yaml
    kubectl apply -f secret-mongo.yaml
-
- kubectl apply -f mongo.yaml
-
-
-kubectl apply -f webapp.yaml
+   kubectl apply -f mongo.yaml
+   kubectl apply -f webapp.yaml
+   ```
 
 
 kubectl expose deployment mongo-deployment --type=ClusterIP --name=mongo-service
