@@ -52,7 +52,7 @@ This project showcases the deployment of a web application and MongoDB in a Kube
 
 ## Acknowledgments
 
-I would like to express my gratitude to TechWorld with Nana for creating an incredibly helpful video that greatly assisted me in understanding K8. .
+I would like to express my gratitude to TechWorld with Nana for creating an incredibly helpful video that greatly assisted me in understanding K8.
 
 [Link to the Helpful Video](https://www.youtube.com/watch?v=s_o8dwzRlu4)
 
