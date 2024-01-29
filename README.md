@@ -24,7 +24,7 @@ This project showcases the deployment of a web application and MongoDB in a Kube
 ## Deployment Steps
 1. Start the minikube cluster 
 ```bash
-   minikube start --vm-driver=hyperkit 
+   minikube start --driver docker 
    minikube status
    ```
 
